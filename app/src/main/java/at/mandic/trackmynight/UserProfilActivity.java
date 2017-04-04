@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 
 public class UserProfilActivity extends AppCompatActivity {
 
@@ -11,6 +12,12 @@ public class UserProfilActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profil);
+
+        EditText name = (EditText) findViewById(R.id.editText2);
+        EditText birthdate = (EditText) findViewById(R.id.editText3);
+        EditText weight = (EditText) findViewById(R.id.editText4);
+
+
 
         ///////////////////////////////////////////////////////////////////////////////////////////
         //Checkbox fuer Geschlechtsauswahl, es darf immer nur ein Geschlecht ausgewaehlt werden!!!

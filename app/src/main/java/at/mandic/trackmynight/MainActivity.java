@@ -13,6 +13,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ///////////////////////////////////////////////////////////////////////////////////
+        //UserProfilButton
         ImageButton imgbtn = (ImageButton) findViewById(R.id.imageButton2);
 
         imgbtn.setOnClickListener(new View.OnClickListener() {
@@ -21,9 +23,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, UserProfilActivity.class));
             }
         });
+        ////////////////////////////////////////////////////////////////////////////////////
 
 
-        int a = 1;
-        char test = 'a';
     }
 }
