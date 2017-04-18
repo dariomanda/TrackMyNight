@@ -19,6 +19,7 @@
         <activity
             android:name=".UserProfilActivity"
             android:label="UserProfil" />
+        <activity android:name=".Drinks"></activity>
     </application>
 
 </manifest>
