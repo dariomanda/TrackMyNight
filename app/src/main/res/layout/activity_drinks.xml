@@ -11,48 +11,43 @@
         android:id="@+id/bier"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         app:srcCompat="@mipmap/ic_launcher" />
 
     <ImageView
         android:id="@+id/wein"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        app:srcCompat="@mipmap/ic_launcher"
-        android:layout_marginTop="35dp"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/bier"
-        android:layout_alignParentStart="true" />
+        android:layout_marginTop="35dp"
+        app:srcCompat="@mipmap/ic_launcher" />
 
     <ImageView
         android:id="@+id/schnaps"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        app:srcCompat="@mipmap/ic_launcher"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/wein"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="61dp" />
+        android:layout_marginTop="39dp"
+        app:srcCompat="@mipmap/ic_launcher" />
 
     <ImageView
-        android:id="@+id/wodka"
+        android:id="@+id/vodka"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        app:srcCompat="@mipmap/ic_launcher"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/schnaps"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="37dp" />
+        android:layout_marginTop="37dp"
+        app:srcCompat="@mipmap/ic_launcher" />
 
     <ImageView
-        android:id="@+id/whiskey"
+        android:id="@+id/whisky"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        app:srcCompat="@mipmap/ic_launcher"
-        android:layout_below="@+id/wodka"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="37dp" />
+        android:layout_below="@+id/vodka"
+        android:layout_marginTop="37dp"
+        app:srcCompat="@mipmap/ic_launcher" />
 
     <TextView
         android:id="@+id/cntBier"
@@ -62,7 +57,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="10dp"
         android:layout_marginEnd="40dp"
-        android:text="TextView" />
+        android:text="@string/defaultValue" />
 
     <TextView
         android:id="@+id/cntWein"
@@ -71,7 +66,7 @@
         android:layout_alignStart="@+id/cntBier"
         android:layout_alignTop="@+id/wein"
         android:layout_marginTop="14dp"
-        android:text="TextView" />
+        android:text="@string/defaultValue" />
 
     <TextView
         android:id="@+id/cntSchnaps"
@@ -80,23 +75,190 @@
         android:layout_alignStart="@+id/cntWein"
         android:layout_alignTop="@+id/schnaps"
         android:layout_marginTop="13dp"
-        android:text="TextView" />
+        android:text="@string/defaultValue" />
 
     <TextView
-        android:id="@+id/cntWodka"
+        android:id="@+id/cntVodka"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/cntSchnaps"
-        android:layout_alignTop="@+id/wodka"
+        android:layout_alignStart="@+id/cntSchnaps"
+        android:layout_alignTop="@+id/vodka"
         android:layout_marginTop="14dp"
-        android:text="TextView" />
+        android:text="@string/defaultValue" />
 
     <TextView
-        android:id="@+id/cntWhiskey"
+        android:id="@+id/cntWhisky"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/whiskey"
-        android:layout_alignStart="@+id/cntWodka"
+        android:layout_alignBottom="@+id/whisky"
+        android:layout_alignStart="@+id/cntVodka"
         android:layout_marginBottom="13dp"
-        android:text="TextView" />
+        android:text="@string/defaultValue" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/cntBier"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="19dp"
+        android:text="Bier" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/cntWein"
+        android:layout_alignBottom="@+id/cntWein"
+        android:layout_alignStart="@+id/textView"
+        android:text="@string/Wein" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_alignTop="@+id/cntSchnaps"
+        android:text="@string/Schnaps" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/cntVodka"
+        android:layout_alignBottom="@+id/cntVodka"
+        android:layout_alignStart="@+id/textView3"
+        android:text="@string/Vodka" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/cntWhisky"
+        android:layout_alignStart="@+id/textView7"
+        android:text="@string/Whisky" />
+
+    <Button
+        android:id="@+id/minusWein"
+        style="@style/Widget.AppCompat.Button.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/minusSchnaps"
+        android:layout_alignTop="@+id/wein"
+        android:text="@string/minus"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="248dp" />
+
+    <Button
+        android:id="@+id/minusBier"
+        style="@style/Widget.AppCompat.Button.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="31dp"
+        android:layout_toEndOf="@+id/textView3"
+        android:text="@string/minus"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="248dp" />
+
+    <Button
+        android:id="@+id/minusSchnaps"
+        style="@style/Widget.AppCompat.Button.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/minusBier"
+        android:layout_alignTop="@+id/schnaps"
+        android:text="@string/minus"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="248dp" />
+
+    <Button
+        android:id="@+id/minusVodka"
+        style="@style/Widget.AppCompat.Button.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/minusSchnaps"
+        android:layout_alignTop="@+id/vodka"
+        android:text="@string/minus"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="248dp" />
+
+    <Button
+        android:id="@+id/minusWhisky"
+        style="@style/Widget.AppCompat.Button.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/minusVodka"
+        android:layout_alignTop="@+id/whisky"
+        android:text="@string/minus"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="248dp" />
+
+    <Button
+        android:id="@+id/plusWein"
+        style="@style/Widget.AppCompat.Button.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/plusSchnaps"
+        android:layout_alignTop="@+id/wein"
+        android:text="@string/plus"
+        tools:layout_editor_absoluteX="117dp"
+        tools:layout_editor_absoluteY="248dp" />
+
+    <Button
+        android:id="@+id/plusBier"
+        style="@style/Widget.AppCompat.Button.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="56dp"
+        android:layout_toStartOf="@+id/cntBier"
+        android:text="@string/plus"
+        tools:layout_editor_absoluteX="117dp"
+        tools:layout_editor_absoluteY="248dp" />
+
+    <Button
+        android:id="@+id/plusSchnaps"
+        style="@style/Widget.AppCompat.Button.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/cntSchnaps"
+        android:layout_alignBottom="@+id/cntSchnaps"
+        android:layout_alignStart="@+id/plusBier"
+        android:text="@string/plus"
+        tools:layout_editor_absoluteX="117dp"
+        tools:layout_editor_absoluteY="248dp" />
+
+    <Button
+        android:id="@+id/plusVodka"
+        style="@style/Widget.AppCompat.Button.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/cntVodka"
+        android:layout_alignBottom="@+id/cntVodka"
+        android:layout_alignStart="@+id/plusSchnaps"
+        android:text="@string/plus"
+        tools:layout_editor_absoluteX="117dp"
+        tools:layout_editor_absoluteY="248dp" />
+
+    <Button
+        android:id="@+id/plusWhisky"
+        style="@style/Widget.AppCompat.Button.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/plusVodka"
+        android:layout_alignTop="@+id/whisky"
+        android:text="@string/plus"
+        tools:layout_editor_absoluteX="117dp"
+        tools:layout_editor_absoluteY="248dp" />
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/textView8"
+        android:layout_marginBottom="30dp"
+        android:text="@string/speichern" />
+
 </RelativeLayout>

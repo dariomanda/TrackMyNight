@@ -2,8 +2,8 @@ package at.mandic.trackmynight;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -20,6 +20,7 @@ public class UserProfilActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_profil);
 
         final EditText name = (EditText) findViewById(R.id.editText);
+        final EditText height = (EditText) findViewById(R.id.editText2);
         final EditText birthdate = (EditText) findViewById(R.id.editText3);
         final EditText weight = (EditText) findViewById(R.id.editText4);
 
@@ -30,16 +31,18 @@ public class UserProfilActivity extends AppCompatActivity {
         String Name = sharedpreferences.getString("Name","");
         String Alter = sharedpreferences.getString("Date","");
         String Gewicht = sharedpreferences.getString("Weight","");
+        String Groesse = sharedpreferences.getString("Height", "");
         Boolean GenderMale = sharedpreferences.getBoolean("Male", false);
         Boolean GenderFemale = sharedpreferences.getBoolean("Female", false);
 
         name.setText(Name);
         birthdate.setText(Alter);
         weight.setText(Gewicht);
+        height.setText(Groesse);
         maennlich.setChecked(GenderMale);
         weiblich.setChecked(GenderFemale);
 
-        ///////////////////////////////////////////////////////////////////////////////////////////
+
         //Checkbox fuer Geschlechtsauswahl, es darf immer nur ein Geschlecht ausgewaehlt werden!!!
         maennlich.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -59,7 +62,7 @@ public class UserProfilActivity extends AppCompatActivity {
                 }
             }
         });
-        ///////////////////////////////////////////////////////////////////////////////////////////
+
 
 
         Button savebutton = (Button)findViewById(R.id.button2);
@@ -74,9 +77,10 @@ public class UserProfilActivity extends AppCompatActivity {
                 editor.putString("Name", name.getText().toString());
                 editor.putString("Date", birthdate.getText().toString());
                 editor.putString("Weight", weight.getText().toString());
+                editor.putString("Height", height.getText().toString());
                 editor.putBoolean("Male", maennlich.isChecked());
                 editor.putBoolean("Female", weiblich.isChecked());
-                editor.commit();
+                editor.apply();
 
                 Toast.makeText(UserProfilActivity.this,"Daten wurden gespeichert",Toast.LENGTH_LONG).show();
             }

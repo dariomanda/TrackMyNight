@@ -20,7 +20,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:label="Hauptmenü">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,7 +32,9 @@
         <activity
             android:name=".UserProfilActivity"
             android:label="UserProfil" />
-        <activity android:name=".Drinks"></activity>
+        <activity
+            android:name=".Drinks"
+            android:label="Getränke Zähler" />
     </application>
 
 </manifest>

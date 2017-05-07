@@ -1,4 +1,27 @@
 <resources>
     <string name="app_name">TrackMyNight</string>
     <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="Bier">Bier</string>
+    <string name="Wein">Wein</string>
+    <string name="Schnaps">Schnaps</string>
+    <string name="Vodka">Vodka</string>
+    <string name="Whisky">Whisky</string>
+
+    <string name="defaultValue">0</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+
+    <string name="maennlich">männlich</string>
+    <string name="weiblich">weiblich</string>
+    <string name="geschlecht">Geschlecht</string>
+    <string name="speichern">Speichern</string>
+    <string name="gewicht">Gewicht</string>
+    <string name="gewichteinheit">in kg</string>
+    <string name="groesse">Körpergröße</string>
+    <string name="grosseeinheit">in cm</string>
+    <string name="alter">Alter</string>
+    <string name="altereinheit">in Jahren</string>
+    <string name="username">Username</string>
+
 </resources>
