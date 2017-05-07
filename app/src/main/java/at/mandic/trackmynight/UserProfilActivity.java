@@ -1,29 +1,46 @@
 package at.mandic.trackmynight;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class UserProfilActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profil);
 
-        EditText name = (EditText) findViewById(R.id.editText2);
-        EditText birthdate = (EditText) findViewById(R.id.editText3);
-        EditText weight = (EditText) findViewById(R.id.editText4);
+        final EditText name = (EditText) findViewById(R.id.editText);
+        final EditText birthdate = (EditText) findViewById(R.id.editText3);
+        final EditText weight = (EditText) findViewById(R.id.editText4);
 
-
-
-        ///////////////////////////////////////////////////////////////////////////////////////////
-        //Checkbox fuer Geschlechtsauswahl, es darf immer nur ein Geschlecht ausgewaehlt werden!!!
         final CheckBox maennlich = (CheckBox) findViewById(R.id.checkBox);
         final CheckBox weiblich =  (CheckBox) findViewById(R.id.checkBox2);
 
+        SharedPreferences sharedpreferences = getSharedPreferences("UserSettings", Context.MODE_PRIVATE);
+        String Name = sharedpreferences.getString("Name","");
+        String Alter = sharedpreferences.getString("Date","");
+        String Gewicht = sharedpreferences.getString("Weight","");
+        Boolean GenderMale = sharedpreferences.getBoolean("Male", false);
+        Boolean GenderFemale = sharedpreferences.getBoolean("Female", false);
+
+        name.setText(Name);
+        birthdate.setText(Alter);
+        weight.setText(Gewicht);
+        maennlich.setChecked(GenderMale);
+        weiblich.setChecked(GenderFemale);
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        //Checkbox fuer Geschlechtsauswahl, es darf immer nur ein Geschlecht ausgewaehlt werden!!!
         maennlich.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -45,5 +62,25 @@ public class UserProfilActivity extends AppCompatActivity {
         ///////////////////////////////////////////////////////////////////////////////////////////
 
 
+        Button savebutton = (Button)findViewById(R.id.button2);
+
+
+        savebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences sharedpreferences = getSharedPreferences("UserSettings", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+
+                editor.putString("Name", name.getText().toString());
+                editor.putString("Date", birthdate.getText().toString());
+                editor.putString("Weight", weight.getText().toString());
+                editor.putBoolean("Male", maennlich.isChecked());
+                editor.putBoolean("Female", weiblich.isChecked());
+                editor.commit();
+
+                Toast.makeText(UserProfilActivity.this,"Daten wurden gespeichert",Toast.LENGTH_LONG).show();
+            }
+        });
     }
+
 }
