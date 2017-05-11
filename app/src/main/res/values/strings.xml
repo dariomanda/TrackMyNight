@@ -24,4 +24,8 @@
     <string name="altereinheit">in Jahren</string>
     <string name="username">Username</string>
 
+    <string name="userProfil">User Profil</string>
+    <string name="getraenkewahl">Getränke Zähler</string>
+    <string name="promille">Promille Berechnen</string>
+
 </resources>
