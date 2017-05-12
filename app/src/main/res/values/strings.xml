@@ -27,5 +27,7 @@
     <string name="userProfil">User Profil</string>
     <string name="getraenkewahl">Getränke Zähler</string>
     <string name="promille">Promille Berechnen</string>
+    <string name="zuruecksetzen">Zurücksetzen</string>
+
 
 </resources>

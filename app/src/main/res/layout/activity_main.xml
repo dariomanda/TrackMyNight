@@ -26,6 +26,16 @@
         tools:layout_constraintTop_creator="1">
 
         <Button
+            android:id="@+id/reset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="19dp"
+            android:onClick="Zurücksetzen"
+            android:text="@string/zuruecksetzen" />
+
+        <Button
             android:id="@+id/promille"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

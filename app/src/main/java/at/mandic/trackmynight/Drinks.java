@@ -127,7 +127,10 @@ public class Drinks extends AppCompatActivity {
         countWhisky.setText(String.valueOf(i));
     }
 
-    public void buttonSave(View view) {
+
+    @Override
+    protected void onStop() {
+        super.onStop();
         TextView countBier = (TextView) findViewById(R.id.cntBier);
         TextView countWein = (TextView) findViewById(R.id.cntWein);
         TextView countSchnaps = (TextView) findViewById(R.id.cntSchnaps);
@@ -144,6 +147,6 @@ public class Drinks extends AppCompatActivity {
         editor.putString("Whisky", countWhisky.getText().toString());
         editor.apply();
 
-        Toast.makeText(Drinks.this, "Daten wurden gespeichert", Toast.LENGTH_LONG).show();
     }
+
 }

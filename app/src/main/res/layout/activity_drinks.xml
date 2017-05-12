@@ -265,14 +265,5 @@
         tools:layout_editor_absoluteX="117dp"
         tools:layout_editor_absoluteY="248dp" />
 
-    <Button
-        android:id="@+id/buttonSave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textView8"
-        android:layout_marginBottom="30dp"
-        android:onClick="buttonSave"
-        android:text="@string/speichern" />
 
 </RelativeLayout>
