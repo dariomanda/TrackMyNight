@@ -28,6 +28,7 @@
     <string name="getraenkewahl">Getränke Zähler</string>
     <string name="promille">Promille Berechnen</string>
     <string name="zuruecksetzen">Zurücksetzen</string>
-
+    <string name="begintracking">Tracking Starten</string>
+    <string name="stoptracking">Tracking Gestoppt</string>
 
 </resources>
