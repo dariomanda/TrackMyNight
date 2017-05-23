@@ -11,45 +11,45 @@
         android:id="@+id/bier"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        app:srcCompat="@drawable/bier"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/bier" />
 
     <ImageView
         android:id="@+id/wein"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginTop="20dp"
-        app:srcCompat="@drawable/wein"
+        android:layout_alignStart="@+id/bier"
         android:layout_below="@+id/bier"
-        android:layout_alignStart="@+id/bier" />
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/wein" />
 
     <ImageView
         android:id="@+id/schnaps"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginTop="15dp"
-        app:srcCompat="@drawable/schnaps"
+        android:layout_alignStart="@+id/wein"
         android:layout_below="@+id/wein"
-        android:layout_alignStart="@+id/wein" />
+        android:layout_marginTop="15dp"
+        app:srcCompat="@drawable/schnaps" />
 
     <ImageView
         android:id="@+id/vodka"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginTop="30dp"
-        app:srcCompat="@drawable/vodka"
+        android:layout_alignStart="@+id/schnaps"
         android:layout_below="@+id/schnaps"
-        android:layout_alignStart="@+id/schnaps" />
+        android:layout_marginTop="30dp"
+        app:srcCompat="@drawable/vodka" />
 
     <ImageView
         android:id="@+id/whisky"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginTop="20dp"
-        app:srcCompat="@drawable/whiskey"
+        android:layout_alignStart="@+id/vodka"
         android:layout_below="@+id/vodka"
-        android:layout_alignStart="@+id/vodka" />
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/whiskey" />
 
     <TextView
         android:id="@+id/cntBier"

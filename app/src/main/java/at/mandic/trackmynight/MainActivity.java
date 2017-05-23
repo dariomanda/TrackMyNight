@@ -8,13 +8,10 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,10 +36,17 @@ public class MainActivity extends AppCompatActivity {
     public void promilleberechnen(View view) {
         SharedPreferences sharedpreferences = getSharedPreferences("UserSettings", Context.MODE_PRIVATE);
         String Name = sharedpreferences.getString("Name", "");
-        double promillewert = promille();
-        if (promillewert == 0) {
-            Toast.makeText(MainActivity.this, "Keine Getränke ausgewählt", Toast.LENGTH_LONG).show();
+        String Alter = sharedpreferences.getString("Date", "0");
+        String Gewicht = sharedpreferences.getString("Weight", "0");
+        String Groesse = sharedpreferences.getString("Height", "0");
+        Boolean GenderMale = sharedpreferences.getBoolean("Male", false);
+        Boolean GenderFemale = sharedpreferences.getBoolean("Female", false);
+
+
+        if (Alter.equals("0") || Gewicht.equals("0") || Groesse.equals("0") || (GenderMale.equals(false) && GenderFemale.equals(false))) {
+            Toast.makeText(MainActivity.this, "User Profil muss vollständig ausgefüllt sein !", Toast.LENGTH_LONG).show();
         } else {
+            double promillewert = promille();
             Toast.makeText(MainActivity.this, Name + " hat ca. " + promillewert + " Promille ", Toast.LENGTH_LONG).show();
         }
     }

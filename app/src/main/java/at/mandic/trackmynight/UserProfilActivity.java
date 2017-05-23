@@ -74,6 +74,7 @@ public class UserProfilActivity extends AppCompatActivity {
         final CheckBox maennlich = (CheckBox) findViewById(R.id.checkBox);
         final CheckBox weiblich = (CheckBox) findViewById(R.id.checkBox2);
 
+
         SharedPreferences sharedpreferences = getSharedPreferences("UserSettings", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedpreferences.edit();
 
@@ -84,5 +85,7 @@ public class UserProfilActivity extends AppCompatActivity {
         editor.putBoolean("Male", maennlich.isChecked());
         editor.putBoolean("Female", weiblich.isChecked());
         editor.apply();
+
+
     }
 }
