@@ -13,12 +13,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import static at.mandic.trackmynight.R.string.begintracking;
-import static at.mandic.trackmynight.R.string.promille;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -36,9 +30,8 @@ public class MainActivity extends AppCompatActivity {
     public void getraenkeauswahl(View view) {
         Intent intent = new Intent(this, Drinks.class);
         if (Global.valueStartTime == null) {
-            TextView startView = (TextView) findViewById(R.id.startTime);
-            Global.valueStartTime = saveDate(getDate());
-            //Global.startzeit = getDate();
+            Global.valueStartTime = Global.convertDate(Global.getTime());
+            Global.startzeit = Global.getTime();
         }
         startActivity(intent);
     }
@@ -186,6 +179,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedpreferences = getSharedPreferences("Getraenke", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedpreferences.edit();
         Global.valueStartTime = null;
+        Global.valueEndTime = null;
 
         editor.putString("Bier", "0");
         editor.putString("Wein", "0");
@@ -212,16 +206,6 @@ public class MainActivity extends AppCompatActivity {
         editor2.putBoolean("Male", false);
         editor2.putBoolean("Female", false);
         editor2.apply();
-    }
-
-    public static Date getDate() {
-        Date date = new Date();
-        return date;
-    }
-    public static String saveDate(Date d){
-        SimpleDateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
-        String dateString = dateFormat.format(getDate());
-        return dateString;
     }
 
 }

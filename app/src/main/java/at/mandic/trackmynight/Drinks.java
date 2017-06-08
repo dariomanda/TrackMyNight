@@ -11,17 +11,23 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
-import java.util.Date;
-
 public class Drinks extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drinks);
         TextView startTime = (TextView) findViewById(R.id.startTime);
+        TextView stop = (TextView) findViewById(R.id.endTime);
+        if (Global.valueEndTime==null){
+            stop.setText("Endzeit: ");
+        }
+        else {
+            stop.setText("Endzeit: " + Global.valueEndTime);
+        }
         TextView promille = (TextView) findViewById(R.id.promille);
         promille.setText(promille.getText().toString()+ "1.87");
-        //startTime.setText(Global.valueStartTime);
+        startTime.setText("Startzeit: "+ Global.valueStartTime);
+
 
         final TextView countBier = (TextView) findViewById(R.id.cntBier);
         final TextView countWein = (TextView) findViewById(R.id.cntWein);
@@ -145,6 +151,8 @@ public class Drinks extends AppCompatActivity {
         TextView countVodka = (TextView) findViewById(R.id.cntVodka);
         TextView countWhisky = (TextView) findViewById(R.id.cntWhisky);
         TextView startTime = (TextView) findViewById(R.id.startTime);
+        TextView endTime = (TextView) findViewById(R.id.endTime);
+        TextView promille = (TextView) findViewById(R.id.promille);
 
         SharedPreferences sharedpreferences = getSharedPreferences("Getraenke", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedpreferences.edit();
@@ -160,8 +168,11 @@ public class Drinks extends AppCompatActivity {
 
     public void stopTracking(View view){
         TextView stop = (TextView) findViewById(R.id.endTime);
-        stop.setText("Endzeit: " + MainActivity.saveDate(MainActivity.getDate()));
-        Global.valueEndTime = MainActivity.saveDate(MainActivity.getDate());
+        if(Global.valueEndTime==null) {
+            stop.setText("Endzeit: " + Global.convertDate(Global.getTime()));
+            Global.valueEndTime = Global.convertDate(Global.getTime());
+            Global.endzeit = Global.getTime();
+        }
         Intent reports = new Intent(this, Reports.class);
         startActivity(reports);
     }

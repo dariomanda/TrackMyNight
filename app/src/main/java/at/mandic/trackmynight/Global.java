@@ -1,6 +1,5 @@
 package at.mandic.trackmynight;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -15,21 +14,16 @@ public class Global {
     public static Long endzeit;
     public static Long startzeit;
 
-    public static String convertToStringDate(String s){
-        SimpleDateFormat fromFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
-        SimpleDateFormat toFormat = new SimpleDateFormat("yyyy-MM-dd-hh-mm-ss");
-        return s;
-    }
-    public static long convertToMillis(String s) {
-        SimpleDateFormat formatter = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
 
-        long milliseconds = 0;
-        try {
-            Date d = formatter.parse(s);
-            milliseconds = d.getTime();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return milliseconds;
+    public static Long getTime() {
+        Date date = new Date();
+        Long time = date.getTime();
+        return time;
+    }
+
+    public static String convertDate(Long d){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
+        String dateString = dateFormat.format(getTime());
+        return dateString;
     }
 }

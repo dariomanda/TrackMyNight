@@ -6,9 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.ArrayList;
 
 public class CallReports extends AppCompatActivity {
 
@@ -18,27 +16,49 @@ public class CallReports extends AppCompatActivity {
         setContentView(R.layout.activity_call_reports);
         TextView log = (TextView) findViewById(R.id.callList);
         log.setText(getCallDetails());
+        addLogs();
+        einfuegen();
 
+    }
+
+    public ArrayList<ArrayList> addLogs(){
+        Cursor managedCursor = managedQuery(CallLog.Calls.CONTENT_URI, null, null, null, null);
+        ArrayList<ArrayList> callLog = new ArrayList();
+        ArrayList logs =  new ArrayList();
+
+        int number = managedCursor.getColumnIndex(CallLog.Calls.NUMBER);
+        while (managedCursor.moveToNext()){
+            Long callDate = Long.parseLong(managedCursor.getString(managedCursor.getColumnIndex(android.provider.CallLog.Calls.DATE)));
+            if(callDate >= Global.startzeit && callDate <= Global.endzeit){
+                String phNumber = managedCursor.getString(number);
+                logs.add(phNumber);
+                callLog.add(logs);
+            }
+        }
+        return callLog;
+    }
+    public void einfuegen() {
+        TextView log2 = (TextView) findViewById(R.id.callList2);
+        for (int i = 0; i < addLogs().size(); i++) {
+            String numbers = (String) addLogs().get(i).get(i);
+
+            log2.setText(numbers+"\n");
+        }
     }
     private String getCallDetails() {
 
         StringBuffer sb = new StringBuffer();
-        Cursor managedCursor = managedQuery(CallLog.Calls.CONTENT_URI, null,
-                null, null, null);
+        Cursor managedCursor = managedQuery(CallLog.Calls.CONTENT_URI, null, null, null, null);
         int number = managedCursor.getColumnIndex(CallLog.Calls.NUMBER);
         int type = managedCursor.getColumnIndex(CallLog.Calls.TYPE);
         int date = managedCursor.getColumnIndex(CallLog.Calls.DATE);
         int duration = managedCursor.getColumnIndex(CallLog.Calls.DURATION);
-      //  long seconds=Long.parseLong(call);
         sb.append("Call Details :");
         while (managedCursor.moveToNext()) {
-            String call = managedCursor.getString(managedCursor.getColumnIndex(android.provider.CallLog.Calls.DATE));
-            Long callDate = Long.parseLong(call);
-            Long startTime = Long.parseLong(Global.valueStartTime);
-            Long endTime = Long.parseLong(Global.valueEndTime);
-//            Date callDayTime = new Date(Long.valueOf(callDate));
+            Long callDate = Long.parseLong(managedCursor.getString(managedCursor.getColumnIndex(android.provider.CallLog.Calls.DATE)));
 
-              if(callDate >= startTime && callDate <= endTime) {String phNumber = managedCursor.getString(number);
+              if(callDate >= Global.startzeit && callDate <= Global.endzeit) {
+                String phNumber = managedCursor.getString(number);
                 String callType = managedCursor.getString(type);
                 String callDuration = managedCursor.getString(duration);
                 String dir = null;
@@ -57,7 +77,7 @@ public class CallReports extends AppCompatActivity {
                         break;
                 }
                 sb.append("\nPhone Number:--- " + phNumber + " \nCall Type:--- "
-                        + dir + " \nCall Date:--- " + callDate//callDayTime
+                        + dir + " \nCall Date:--- " + Global.convertDate(callDate)//callDayTime
                         + " \nCall duration in sec :--- " + callDuration);
                 sb.append("\n----------------------------------");
             }
