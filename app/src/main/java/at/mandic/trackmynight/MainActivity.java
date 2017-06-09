@@ -15,7 +15,6 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void getraenkeauswahl(View view) {
         Intent intent = new Intent(this, Drinks.class);
+        if (Global.valueStartTime == null) {
+            Global.valueStartTime = Global.convertDate(Global.getTime());
+            Global.startzeit = Global.getTime();
+        }
         startActivity(intent);
     }
 
@@ -50,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, Name + " hat ca. " + promillewert + " Promille ", Toast.LENGTH_LONG).show();
         }
     }
-
 
     public double promille() {
 
@@ -165,15 +167,19 @@ public class MainActivity extends AppCompatActivity {
         alert.show();
     }
 
+
+
+
     public void reset() {
         TextView countBier = (TextView) findViewById(R.id.cntBier);
         TextView countWein = (TextView) findViewById(R.id.cntWein);
         TextView countSchnaps = (TextView) findViewById(R.id.cntSchnaps);
         TextView countVodka = (TextView) findViewById(R.id.cntVodka);
         TextView countWhisky = (TextView) findViewById(R.id.cntWhisky);
-
         SharedPreferences sharedpreferences = getSharedPreferences("Getraenke", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedpreferences.edit();
+        Global.valueStartTime = null;
+        Global.valueEndTime = null;
 
         editor.putString("Bier", "0");
         editor.putString("Wein", "0");
@@ -201,4 +207,5 @@ public class MainActivity extends AppCompatActivity {
         editor2.putBoolean("Female", false);
         editor2.apply();
     }
+
 }
