@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
         } else {
             double promillewert = promille();
             Toast.makeText(MainActivity.this, Name + " hat ca. " + promillewert + " Promille ", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(this, PromilleAuswertungsActivity.class);
+            startActivity(intent);
         }
     }
 
@@ -143,7 +145,10 @@ public class MainActivity extends AppCompatActivity {
         double vodkagesamt = (vodkaeinheit * vodka) * vodkagehalt * p;
         double whiskygesamt = (whiskyeinheit * whisky) * whiskygehalt * p;
 
+
         return (biergesamt + weingesamt + schnapsgesamt + vodkagesamt + whiskygesamt);
+
+
     }
 
     public void Zurücksetzen(View view) {
