@@ -1,6 +1,7 @@
 package at.mandic.trackmynight;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,11 +9,25 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 public class Drinks extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drinks);
+        TextView startTime = (TextView) findViewById(R.id.startTime);
+        TextView stop = (TextView) findViewById(R.id.endTime);
+        if (Global.valueEndTime==null){
+            stop.setText("Endzeit: ");
+        }
+        else {
+            stop.setText("Endzeit: " + Global.valueEndTime);
+        }
+        TextView promille = (TextView) findViewById(R.id.promille);
+        promille.setText(promille.getText().toString()+ "1.87");
+        startTime.setText("Startzeit: "+ Global.valueStartTime);
+
 
         final TextView countBier = (TextView) findViewById(R.id.cntBier);
         final TextView countWein = (TextView) findViewById(R.id.cntWein);
@@ -127,7 +142,6 @@ public class Drinks extends AppCompatActivity {
         countWhisky.setText(String.valueOf(i));
     }
 
-
     @Override
     protected void onStop() {
         super.onStop();
@@ -136,6 +150,9 @@ public class Drinks extends AppCompatActivity {
         TextView countSchnaps = (TextView) findViewById(R.id.cntSchnaps);
         TextView countVodka = (TextView) findViewById(R.id.cntVodka);
         TextView countWhisky = (TextView) findViewById(R.id.cntWhisky);
+        TextView startTime = (TextView) findViewById(R.id.startTime);
+        TextView endTime = (TextView) findViewById(R.id.endTime);
+        TextView promille = (TextView) findViewById(R.id.promille);
 
         SharedPreferences sharedpreferences = getSharedPreferences("Getraenke", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedpreferences.edit();
@@ -147,6 +164,17 @@ public class Drinks extends AppCompatActivity {
         editor.putString("Whisky", countWhisky.getText().toString());
         editor.apply();
 
+    }
+
+    public void stopTracking(View view){
+        TextView stop = (TextView) findViewById(R.id.endTime);
+        if(Global.valueEndTime==null) {
+            stop.setText("Endzeit: " + Global.convertDate(Global.getTime()));
+            Global.valueEndTime = Global.convertDate(Global.getTime());
+            Global.endzeit = Global.getTime();
+        }
+        Intent reports = new Intent(this, Reports.class);
+        startActivity(reports);
     }
 
 }
