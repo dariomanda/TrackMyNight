@@ -47,7 +47,7 @@ public class CallReports extends AppCompatActivity {
     }
     private String getCallDetails() {
 
-        StringBuffer sb = new StringBuffer();
+        StringBuffer sb = new StringBuffer();//
         Cursor managedCursor = managedQuery(CallLog.Calls.CONTENT_URI, null, null, null, null);
         int number = managedCursor.getColumnIndex(CallLog.Calls.NUMBER);
         int type = managedCursor.getColumnIndex(CallLog.Calls.TYPE);
