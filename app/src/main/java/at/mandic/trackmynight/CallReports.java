@@ -4,9 +4,13 @@ import android.database.Cursor;
 import android.provider.CallLog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 public class CallReports extends AppCompatActivity {
 
@@ -14,76 +18,32 @@ public class CallReports extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_call_reports);
-        TextView log = (TextView) findViewById(R.id.callList);
-        log.setText(getCallDetails());
-        addLogs();
-        einfuegen();
+        ListView callLogs = (ListView) findViewById(R.id.callLogs);
 
-    }
-
-    public ArrayList<ArrayList> addLogs(){
         Cursor managedCursor = managedQuery(CallLog.Calls.CONTENT_URI, null, null, null, null);
-        ArrayList<ArrayList> callLog = new ArrayList();
-        ArrayList logs =  new ArrayList();
+        ReadCallLogs logs = new ReadCallLogs();
 
-        int number = managedCursor.getColumnIndex(CallLog.Calls.NUMBER);
-        while (managedCursor.moveToNext()){
-            Long callDate = Long.parseLong(managedCursor.getString(managedCursor.getColumnIndex(android.provider.CallLog.Calls.DATE)));
-            if(callDate >= Global.startzeit && callDate <= Global.endzeit){
-                String phNumber = managedCursor.getString(number);
-                logs.add(phNumber);
-                callLog.add(logs);
-            }
+        ArrayList<String> numbers = new ArrayList<>(logs.getNumbers(managedCursor));
+        ArrayList<String> types = new ArrayList<>(logs.getTypes(managedCursor));
+        ArrayList<String> durations = new ArrayList<>(logs.getDurations(managedCursor));
+        ArrayList<String> dates = new ArrayList<>(logs.getDates(managedCursor));
+
+        //Testen der Ausgabe
+
+        ArrayList<String> completeList = new ArrayList<>();
+
+        for (int i = 0; i < numbers.size(); i++) {
+            completeList.add("Anruflog "+String.valueOf(i+1)+":");
+            completeList.add("Rufnummer: "+numbers.get(i));
+            completeList.add("Art: "+types.get(i));
+            completeList.add("Anrufdauer: "+durations.get(i)+" Sekunden");
+            completeList.add("Uhrzeit: "+dates.get(i));
         }
-        return callLog;
-    }
-    public void einfuegen() {
-        TextView log2 = (TextView) findViewById(R.id.callList2);
-        for (int i = 0; i < addLogs().size(); i++) {
-            String numbers = (String) addLogs().get(i).get(i);
-
-            log2.setText(numbers+"\n");
+        if(numbers.isEmpty()){
+            completeList.add("Keine Anrufe. Du warst wohl nicht betrunken!");
         }
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, completeList);
+        callLogs.setAdapter(adapter);
     }
-    private String getCallDetails() {
 
-        StringBuffer sb = new StringBuffer();//
-        Cursor managedCursor = managedQuery(CallLog.Calls.CONTENT_URI, null, null, null, null);
-        int number = managedCursor.getColumnIndex(CallLog.Calls.NUMBER);
-        int type = managedCursor.getColumnIndex(CallLog.Calls.TYPE);
-        int date = managedCursor.getColumnIndex(CallLog.Calls.DATE);
-        int duration = managedCursor.getColumnIndex(CallLog.Calls.DURATION);
-        sb.append("Call Details :");
-        while (managedCursor.moveToNext()) {
-            Long callDate = Long.parseLong(managedCursor.getString(managedCursor.getColumnIndex(android.provider.CallLog.Calls.DATE)));
-
-              if(callDate >= Global.startzeit && callDate <= Global.endzeit) {
-                String phNumber = managedCursor.getString(number);
-                String callType = managedCursor.getString(type);
-                String callDuration = managedCursor.getString(duration);
-                String dir = null;
-                int dircode = Integer.parseInt(callType);
-                switch (dircode) {
-                    case CallLog.Calls.OUTGOING_TYPE:
-                        dir = "OUTGOING";
-                        break;
-
-                    case CallLog.Calls.INCOMING_TYPE:
-                        dir = "INCOMING";
-                        break;
-
-                    case CallLog.Calls.MISSED_TYPE:
-                        dir = "MISSED";
-                        break;
-                }
-                sb.append("\nPhone Number:--- " + phNumber + " \nCall Type:--- "
-                        + dir + " \nCall Date:--- " + Global.convertDate(callDate)//callDayTime
-                        + " \nCall duration in sec :--- " + callDuration);
-                sb.append("\n----------------------------------");
-            }
-        }
-        managedCursor.close();
-        return sb.toString();
-
-    }
 }
