@@ -22,7 +22,7 @@ public class Global {
     }
 
     public static String convertDate(Long d){
-        SimpleDateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss yyyy");
         String dateString = dateFormat.format(getTime());
         return dateString;
     }

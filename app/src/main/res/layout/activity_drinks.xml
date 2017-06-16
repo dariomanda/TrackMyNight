@@ -13,7 +13,7 @@
         android:layout_height="60dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        app:srcCompat="@drawable/bier" />
+        app:srcCompat="@mipmap/ic_launcher" />
 
     <ImageView
         android:id="@+id/wein"
@@ -22,7 +22,7 @@
         android:layout_alignStart="@+id/bier"
         android:layout_below="@+id/bier"
         android:layout_marginTop="20dp"
-        app:srcCompat="@drawable/wein" />
+        app:srcCompat="@mipmap/ic_launcher" />
 
     <ImageView
         android:id="@+id/schnaps"
@@ -31,7 +31,7 @@
         android:layout_alignStart="@+id/wein"
         android:layout_below="@+id/wein"
         android:layout_marginTop="15dp"
-        app:srcCompat="@drawable/schnaps" />
+        app:srcCompat="@mipmap/ic_launcher" />
 
     <ImageView
         android:id="@+id/vodka"
@@ -40,7 +40,7 @@
         android:layout_alignStart="@+id/schnaps"
         android:layout_below="@+id/schnaps"
         android:layout_marginTop="30dp"
-        app:srcCompat="@drawable/vodka" />
+        app:srcCompat="@mipmap/ic_launcher" />
 
     <ImageView
         android:id="@+id/whisky"
@@ -49,7 +49,7 @@
         android:layout_alignStart="@+id/vodka"
         android:layout_below="@+id/vodka"
         android:layout_marginTop="20dp"
-        app:srcCompat="@drawable/whiskey" />
+        app:srcCompat="@mipmap/ic_launcher" />
 
     <TextView
         android:id="@+id/cntBier"
