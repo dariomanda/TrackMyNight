@@ -26,4 +26,9 @@ public class Global {
         String dateString = dateFormat.format(getTime());
         return dateString;
     }
+    public static String convertDateSMS(Long dateString){
+        Date date=new Date(dateString);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss yyyy");
+        return dateFormat.format(date);
+    }
 }
