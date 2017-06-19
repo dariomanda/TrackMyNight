@@ -45,7 +45,9 @@
             android:label="Getränke Zähler" />
         <activity android:name=".Reports" />
         <activity android:name=".CallReports" />
-        <activity android:name=".SMSReports"></activity>
+        <activity android:name=".SMSReports" />
+        <activity android:name=".PhotoReports" />
+        <activity android:name=".ShowPhoto"></activity>
     </application>
 
 </manifest>
