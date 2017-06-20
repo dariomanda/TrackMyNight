@@ -10,10 +10,10 @@
 
 
     <uses-permission android:name="android.permission.READ_SMS" />
-    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
-    <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
@@ -61,7 +61,10 @@
             android:label="Berechnung" />
 
         <activity android:name=".Reports" />
-        <activity android:name=".CallReports"></activity>
+        <activity android:name=".CallReports" />
+        <activity android:name=".SMSReports" />
+        <activity android:name=".PhotoReports" />
+        <activity android:name=".ShowPhoto"></activity>
     </application>
 
 </manifest>
