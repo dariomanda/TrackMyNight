@@ -16,13 +16,16 @@ public class Drinks extends AppCompatActivity {
         setContentView(R.layout.activity_drinks);
         TextView startTime = (TextView) findViewById(R.id.startTime);
         TextView stop = (TextView) findViewById(R.id.endTime);
+        SharedPreferences sharedpreferenc = getSharedPreferences("Zeit", Context.MODE_PRIVATE);
+        //SharedPreferences.Editor editor = sharedpreferences.edit();
+        long start = sharedpreferenc.getLong("StartTime", 0);
         if (Global.valueEndTime==null){
             stop.setText("Endzeit: ");
         }
         else {
             stop.setText("Endzeit: " + Global.valueEndTime);
         }
-        startTime.setText("Startzeit: "+ Global.valueStartTime);
+        startTime.setText("Startzeit: " + Global.convertDateSMS(start));
 
 
         final TextView countBier = (TextView) findViewById(R.id.cntBier);

@@ -27,9 +27,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void getraenkeauswahl(View view) {
         Intent intent = new Intent(this, Drinks.class);
-        if (Global.valueStartTime == null) {
+        SharedPreferences sharedpreferences = getSharedPreferences("Zeit", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        long start = sharedpreferences.getLong("StartTime", 0);
+
+        if (start == 0) {
             Global.valueStartTime = Global.convertDate(Global.getTime());
             Global.startzeit = Global.getTime();
+            editor.putLong("StartTime", Global.startzeit);
+            editor.apply();
         }
         startActivity(intent);
     }
@@ -65,6 +71,10 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedpreferences.edit();
         Global.valueStartTime = null;
         Global.valueEndTime = null;
+        SharedPreferences sharedpreferenc = getSharedPreferences("Zeit", Context.MODE_PRIVATE);
+        SharedPreferences.Editor edit = sharedpreferenc.edit();
+        edit.putLong("StartTime", 0);
+        edit.apply();
 
         editor.putString("Bier", "0");
         editor.putString("Wein", "0");

@@ -40,15 +40,15 @@ public class PromilleAuswertungsActivity extends AppCompatActivity {
         barEntries.add(new BarEntry(3, (float) d));
         barEntries.add(new BarEntry(4, (float) e));
 
-        BarDataSet barDataSetBier = new BarDataSet(barEntries.subList(0, 1), "Bier");
+        BarDataSet barDataSetBier = new BarDataSet(barEntries.subList(0, 1), "0,5l Bier");
         barDataSetBier.setColors(ColorTemplate.VORDIPLOM_COLORS[2]);
-        BarDataSet barDataSetWein = new BarDataSet(barEntries.subList(1, 2), "Wein");
+        BarDataSet barDataSetWein = new BarDataSet(barEntries.subList(1, 2), "1/8l Wein");
         barDataSetWein.setColors(ColorTemplate.VORDIPLOM_COLORS[1]);
-        BarDataSet barDataSetSchnaps = new BarDataSet(barEntries.subList(2, 3), "Schnaps");
+        BarDataSet barDataSetSchnaps = new BarDataSet(barEntries.subList(2, 3), "2cl Schnaps");
         barDataSetSchnaps.setColor(ColorTemplate.VORDIPLOM_COLORS[4]);
-        BarDataSet barDataSetVodka = new BarDataSet(barEntries.subList(3, 4), "Vodka");
+        BarDataSet barDataSetVodka = new BarDataSet(barEntries.subList(3, 4), "2cl Vodka");
         barDataSetVodka.setColor(ColorTemplate.VORDIPLOM_COLORS[3]);
-        BarDataSet barDataSetWhisky = new BarDataSet(barEntries.subList(4, 5), "Whisky");
+        BarDataSet barDataSetWhisky = new BarDataSet(barEntries.subList(4, 5), "2cl Whisky");
         barDataSetWhisky.setColor(ColorTemplate.VORDIPLOM_COLORS[0]);
 
         ArrayList<IBarDataSet> alkoholsorten = new ArrayList<IBarDataSet>();
