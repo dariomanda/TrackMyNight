@@ -1,306 +1,401 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="at.mandic.trackmynight.Drinks">
+    tools:context="at.mandic.trackmynight.Drinks"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="81dp">
 
     <ImageView
         android:id="@+id/bier"
         android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        app:srcCompat="@mipmap/ic_launcher" />
+        android:layout_height="0dp"
+        android:layout_marginBottom="18dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/plusWein"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <ImageView
         android:id="@+id/wein"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignStart="@+id/bier"
-        android:layout_below="@+id/bier"
-        android:layout_marginTop="20dp"
-        app:srcCompat="@mipmap/ic_launcher" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="72dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="68dp"
+        app:layout_constraintBottom_toBottomOf="@+id/plusSchnaps"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bier"
+        app:srcCompat="@mipmap/ic_launcher"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <ImageView
         android:id="@+id/schnaps"
-        android:layout_width="60dp"
+        android:layout_width="0dp"
         android:layout_height="60dp"
-        android:layout_alignStart="@+id/wein"
-        android:layout_below="@+id/wein"
         android:layout_marginTop="15dp"
-        app:srcCompat="@mipmap/ic_launcher" />
+        app:layout_constraintLeft_toLeftOf="@+id/wein"
+        app:layout_constraintRight_toRightOf="@+id/wein"
+        app:layout_constraintTop_toBottomOf="@+id/wein"
+        app:srcCompat="@mipmap/ic_launcher"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <ImageView
         android:id="@+id/vodka"
-        android:layout_width="60dp"
+        android:layout_width="0dp"
         android:layout_height="60dp"
-        android:layout_alignStart="@+id/schnaps"
-        android:layout_below="@+id/schnaps"
-        android:layout_marginTop="30dp"
-        app:srcCompat="@mipmap/ic_launcher" />
+        android:layout_marginTop="15dp"
+        app:layout_constraintLeft_toLeftOf="@+id/schnaps"
+        app:layout_constraintRight_toRightOf="@+id/schnaps"
+        app:layout_constraintTop_toBottomOf="@+id/schnaps"
+        app:srcCompat="@mipmap/ic_launcher"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <ImageView
         android:id="@+id/whisky"
-        android:layout_width="60dp"
+        android:layout_width="0dp"
         android:layout_height="60dp"
-        android:layout_alignStart="@+id/vodka"
-        android:layout_below="@+id/vodka"
         android:layout_marginTop="20dp"
-        app:srcCompat="@mipmap/ic_launcher" />
+        app:layout_constraintLeft_toLeftOf="@+id/vodka"
+        app:layout_constraintRight_toRightOf="@+id/vodka"
+        app:layout_constraintTop_toBottomOf="@+id/vodka"
+        app:srcCompat="@mipmap/ic_launcher"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <TextView
         android:id="@+id/cntBier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/bier"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="10dp"
-        android:layout_marginEnd="40dp"
-        android:text="@string/defaultValue" />
+        android:layout_marginTop="33dp"
+        android:text="@string/defaultValue"
+        app:layout_constraintLeft_toLeftOf="@+id/cntWein"
+        app:layout_constraintRight_toRightOf="@+id/cntWein"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <TextView
         android:id="@+id/cntWein"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/cntBier"
-        android:layout_alignTop="@+id/wein"
-        android:layout_marginTop="14dp"
-        android:text="@string/defaultValue" />
+        android:text="@string/defaultValue"
+        app:layout_constraintBaseline_toBaselineOf="@+id/plusWein"
+        app:layout_constraintLeft_toLeftOf="@+id/cntSchnaps"
+        app:layout_constraintRight_toRightOf="@+id/cntSchnaps"
+        tools:layout_constraintBaseline_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1" />
 
     <TextView
         android:id="@+id/cntSchnaps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/cntWein"
-        android:layout_alignTop="@+id/schnaps"
-        android:layout_marginTop="13dp"
-        android:text="@string/defaultValue" />
+        android:text="@string/defaultValue"
+        app:layout_constraintBaseline_toBaselineOf="@+id/plusSchnaps"
+        app:layout_constraintLeft_toLeftOf="@+id/cntVodka"
+        app:layout_constraintRight_toRightOf="@+id/cntVodka"
+        tools:layout_constraintBaseline_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1" />
 
     <TextView
         android:id="@+id/cntVodka"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/cntSchnaps"
-        android:layout_alignTop="@+id/vodka"
-        android:layout_marginTop="14dp"
-        android:text="@string/defaultValue" />
+        android:text="@string/defaultValue"
+        app:layout_constraintBaseline_toBaselineOf="@+id/plusVodka"
+        app:layout_constraintLeft_toLeftOf="@+id/cntWhisky"
+        app:layout_constraintRight_toRightOf="@+id/cntWhisky"
+        tools:layout_constraintBaseline_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1" />
 
     <TextView
         android:id="@+id/cntWhisky"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/whisky"
-        android:layout_alignStart="@+id/cntVodka"
-        android:layout_marginBottom="13dp"
-        android:text="@string/defaultValue" />
+        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="40dp"
+        android:text="@string/defaultValue"
+        app:layout_constraintBottom_toBottomOf="@+id/plusWhisky"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintRight_creator="1" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/cntBier"
-        android:layout_alignParentStart="true"
         android:layout_marginStart="19dp"
-        android:text="Bier" />
+        android:layout_marginTop="33dp"
+        android:text="Bier"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/cntWein"
-        android:layout_alignBottom="@+id/cntWein"
-        android:layout_alignStart="@+id/textView"
-        android:text="@string/Wein" />
+        android:layout_marginBottom="43dp"
+        android:layout_marginLeft="19dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="45dp"
+        android:text="@string/Wein"
+        app:layout_constraintBottom_toTopOf="@+id/minusSchnaps"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView2"
-        android:layout_alignTop="@+id/cntSchnaps"
-        android:text="@string/Schnaps" />
+        android:layout_marginLeft="19dp"
+        android:layout_marginStart="19dp"
+        android:text="@string/Schnaps"
+        app:layout_constraintBaseline_toBaselineOf="@+id/minusSchnaps"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:layout_constraintBaseline_creator="1"
+        tools:layout_constraintLeft_creator="1" />
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/cntVodka"
-        android:layout_alignBottom="@+id/cntVodka"
-        android:layout_alignStart="@+id/textView3"
-        android:text="@string/Vodka" />
+        android:layout_marginStart="19dp"
+        android:text="@string/Vodka"
+        app:layout_constraintBaseline_toBaselineOf="@+id/minusVodka"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:layout_constraintBaseline_creator="1"
+        tools:layout_constraintLeft_creator="1" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/cntWhisky"
-        android:layout_alignStart="@+id/textView7"
-        android:text="@string/Whisky" />
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/Whisky"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/minusWhisky"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <Button
         android:id="@+id/minusWein"
         style="@style/Widget.AppCompat.Button.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/minusSchnaps"
-        android:layout_alignTop="@+id/wein"
+        android:layout_marginTop="32dp"
         android:onClick="minusWein"
         android:text="@string/minus"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="248dp" />
+        app:layout_constraintLeft_toLeftOf="@+id/minusSchnaps"
+        app:layout_constraintRight_toRightOf="@+id/minusSchnaps"
+        app:layout_constraintTop_toBottomOf="@+id/minusBier"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <Button
         android:id="@+id/minusBier"
         style="@style/Widget.AppCompat.Button.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/bier"
-        android:layout_marginStart="32dp"
-        android:layout_toEndOf="@+id/textView3"
         android:onClick="minusBier"
         android:text="@string/minus"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="248dp" />
+        app:layout_constraintLeft_toLeftOf="@+id/minusWein"
+        app:layout_constraintRight_toRightOf="@+id/minusWein"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <Button
         android:id="@+id/minusSchnaps"
         style="@style/Widget.AppCompat.Button.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/minusBier"
-        android:layout_alignTop="@+id/schnaps"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="27dp"
         android:onClick="minusSchnaps"
         android:text="@string/minus"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="248dp" />
+        app:layout_constraintRight_toLeftOf="@+id/schnaps"
+        app:layout_constraintTop_toBottomOf="@+id/minusWein"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <Button
         android:id="@+id/minusVodka"
         style="@style/Widget.AppCompat.Button.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/minusSchnaps"
-        android:layout_alignTop="@+id/vodka"
+        android:layout_marginTop="27dp"
         android:onClick="minusVodka"
         android:text="@string/minus"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="248dp" />
+        app:layout_constraintLeft_toLeftOf="@+id/minusSchnaps"
+        app:layout_constraintRight_toRightOf="@+id/minusSchnaps"
+        app:layout_constraintTop_toBottomOf="@+id/minusSchnaps"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <Button
         android:id="@+id/minusWhisky"
         style="@style/Widget.AppCompat.Button.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/minusVodka"
-        android:layout_alignTop="@+id/whisky"
+        android:layout_marginTop="32dp"
         android:onClick="minusWhisky"
         android:text="@string/minus"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="248dp" />
+        app:layout_constraintLeft_toLeftOf="@+id/minusVodka"
+        app:layout_constraintRight_toRightOf="@+id/minusVodka"
+        app:layout_constraintTop_toBottomOf="@+id/minusVodka"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <Button
         android:id="@+id/plusWein"
         style="@style/Widget.AppCompat.Button.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/plusSchnaps"
-        android:layout_alignTop="@+id/wein"
+        android:layout_marginTop="32dp"
         android:onClick="plusWein"
         android:text="@string/plus"
-        tools:layout_editor_absoluteX="117dp"
-        tools:layout_editor_absoluteY="248dp" />
+        app:layout_constraintLeft_toLeftOf="@+id/plusBier"
+        app:layout_constraintRight_toRightOf="@+id/plusBier"
+        app:layout_constraintTop_toBottomOf="@+id/plusBier"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <Button
         android:id="@+id/plusBier"
         style="@style/Widget.AppCompat.Button.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/bier"
-        android:layout_marginEnd="56dp"
-        android:layout_toStartOf="@+id/cntBier"
+        android:layout_marginStart="11dp"
         android:onClick="plusBier"
         android:text="@string/plus"
-        tools:layout_editor_absoluteX="117dp"
-        tools:layout_editor_absoluteY="248dp" />
+        app:layout_constraintLeft_toRightOf="@+id/bier"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <Button
         android:id="@+id/plusSchnaps"
         style="@style/Widget.AppCompat.Button.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/cntSchnaps"
-        android:layout_alignBottom="@+id/cntSchnaps"
-        android:layout_alignStart="@+id/plusBier"
+        android:layout_marginTop="27dp"
         android:onClick="plusSchnaps"
         android:text="@string/plus"
-        tools:layout_editor_absoluteX="117dp"
-        tools:layout_editor_absoluteY="248dp" />
+        app:layout_constraintLeft_toLeftOf="@+id/plusWein"
+        app:layout_constraintRight_toRightOf="@+id/plusWein"
+        app:layout_constraintTop_toBottomOf="@+id/plusWein"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <Button
         android:id="@+id/plusVodka"
         style="@style/Widget.AppCompat.Button.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/cntVodka"
-        android:layout_alignBottom="@+id/cntVodka"
-        android:layout_alignStart="@+id/plusSchnaps"
+        android:layout_marginTop="27dp"
         android:onClick="plusVodka"
         android:text="@string/plus"
-        tools:layout_editor_absoluteX="117dp"
-        tools:layout_editor_absoluteY="248dp" />
+        app:layout_constraintLeft_toLeftOf="@+id/plusSchnaps"
+        app:layout_constraintRight_toRightOf="@+id/plusSchnaps"
+        app:layout_constraintTop_toBottomOf="@+id/plusSchnaps"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <Button
         android:id="@+id/plusWhisky"
         style="@style/Widget.AppCompat.Button.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/plusVodka"
-        android:layout_alignTop="@+id/whisky"
+        android:layout_marginTop="34dp"
         android:onClick="plusWhisky"
         android:text="@string/plus"
-        tools:layout_editor_absoluteX="117dp"
-        tools:layout_editor_absoluteY="248dp" />
+        app:layout_constraintLeft_toLeftOf="@+id/plusVodka"
+        app:layout_constraintRight_toRightOf="@+id/plusVodka"
+        app:layout_constraintTop_toBottomOf="@+id/plusVodka"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
     <TextView
         android:id="@+id/startTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="81dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="88dp"
         android:text="Startzeit:"
-        android:layout_alignStart="@+id/textView8"
-        android:layout_alignEnd="@+id/whisky"
-        android:layout_above="@+id/stopTracking" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/minusWhisky"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
-    <TextView
-        android:id="@+id/promille"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Promille:"
-        android:layout_marginTop="16dp"
-        android:layout_below="@+id/cntWhisky"
-        android:layout_toStartOf="@+id/cntWhisky"
-        android:layout_marginEnd="20dp" />
 
     <Button
         android:id="@+id/stopTracking"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:onClick="stopTracking"
         android:text="Tracking Stoppen"
-        android:layout_below="@+id/promille"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="11dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintRight_creator="1" />
 
     <TextView
         android:id="@+id/endTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:text="Endzeit :"
-        android:layout_alignStart="@+id/startTime"
-        android:layout_alignEnd="@+id/startTime"
-        android:layout_alignBottom="@+id/stopTracking" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1" />
 
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

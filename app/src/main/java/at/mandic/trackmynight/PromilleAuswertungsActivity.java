@@ -62,6 +62,9 @@ public class PromilleAuswertungsActivity extends AppCompatActivity {
         barChart.setTouchEnabled(true);
         barChart.setDragEnabled(true);
         barChart.setScaleEnabled(true);
+        barChart.setDescription(null);
+        barChart.setMotionEventSplittingEnabled(true);
+        barChart.animateX(3000);
         barChart.setData(data);
 
         double f = test.promille(5);

@@ -36,17 +36,6 @@
             android:text="@string/zuruecksetzen" />
 
         <Button
-            android:id="@+id/promille"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/getraenkezaehler"
-            android:layout_marginTop="15dp"
-            android:onClick="promilleberechnen"
-            android:text="@string/promille" />
-
-
-        <Button
             android:id="@+id/getraenkezaehler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

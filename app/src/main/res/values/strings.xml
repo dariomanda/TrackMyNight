@@ -25,7 +25,7 @@
     <string name="username">Username</string>
 
     <string name="userProfil">User Profil</string>
-    <string name="getraenkewahl">Getränke Zähler</string>
+    <string name="getraenkewahl">Zum Tracking</string>
     <string name="promille">Promille Berechnen</string>
     <string name="zuruecksetzen">Zurücksetzen</string>
     <string name="begintracking">Tracking Starten</string>

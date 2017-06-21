@@ -9,8 +9,6 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 public class Drinks extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +22,6 @@ public class Drinks extends AppCompatActivity {
         else {
             stop.setText("Endzeit: " + Global.valueEndTime);
         }
-        TextView promille = (TextView) findViewById(R.id.promille);
-        promille.setText(promille.getText().toString()+ "1.87");
         startTime.setText("Startzeit: "+ Global.valueStartTime);
 
 
@@ -152,7 +148,7 @@ public class Drinks extends AppCompatActivity {
         TextView countWhisky = (TextView) findViewById(R.id.cntWhisky);
         TextView startTime = (TextView) findViewById(R.id.startTime);
         TextView endTime = (TextView) findViewById(R.id.endTime);
-        TextView promille = (TextView) findViewById(R.id.promille);
+
 
         SharedPreferences sharedpreferences = getSharedPreferences("Getraenke", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedpreferences.edit();
