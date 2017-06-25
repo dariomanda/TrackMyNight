@@ -30,5 +30,19 @@
     <string name="zuruecksetzen">Zurücksetzen</string>
     <string name="begintracking">Tracking Starten</string>
     <string name="stoptracking">Tracking Gestoppt</string>
+    <string name="countnegativ1">Egal wieviel du getrunken hast, ein Überlauf auf -1 ist nicht möglich!</string>
+    <string name="reset">Wircklich zurücksetzen ?</string>
+    <string name="Ja">Ja</string>
+    <string name="Nein">Nein</string>
+    <string name="endzeit">Endzeit :</string>
+    <string name="startzeit">Startzeit:</string>
+    <string name="zur_ckgelegte_strecke">Strecke</string>
+    <string name="fotos">Fotos</string>
+    <string name="textnachrichten">SMS</string>
+    <string name="anrufe">Anrufe</string>
+    <string name="alkoholkonsum">Alkohol</string>
+    <string name="tracking_stoppen">Tracking Stoppen</string>
+    <string name="stoppen">Tracking wircklich stoppen ?</string>
+    <string name="nicht_implementiert">Nicht implementiert !</string>
 
 </resources>

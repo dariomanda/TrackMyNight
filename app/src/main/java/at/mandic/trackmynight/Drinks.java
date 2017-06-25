@@ -1,9 +1,11 @@
 package at.mandic.trackmynight;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
@@ -14,19 +16,6 @@ public class Drinks extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drinks);
-        TextView startTime = (TextView) findViewById(R.id.startTime);
-        TextView stop = (TextView) findViewById(R.id.endTime);
-        SharedPreferences sharedpreferenc = getSharedPreferences("Zeit", Context.MODE_PRIVATE);
-        //SharedPreferences.Editor editor = sharedpreferences.edit();
-        long start = sharedpreferenc.getLong("StartTime", 0);
-        if (Global.valueEndTime==null){
-            stop.setText("Endzeit: ");
-        }
-        else {
-            stop.setText("Endzeit: " + Global.valueEndTime);
-        }
-        startTime.setText("Startzeit: " + Global.convertDateSMS(start));
-
 
         final TextView countBier = (TextView) findViewById(R.id.cntBier);
         final TextView countWein = (TextView) findViewById(R.id.cntWein);
@@ -56,7 +45,7 @@ public class Drinks extends AppCompatActivity {
 
     public int minus(int count) {
         Context context = getApplicationContext();
-        CharSequence text = "Cannot drink too negativ !";
+        CharSequence text = getString(R.string.countnegativ1);
         int duration = Toast.LENGTH_SHORT;
         final Toast toast = Toast.makeText(context, text, duration);
 
@@ -152,7 +141,6 @@ public class Drinks extends AppCompatActivity {
         TextView startTime = (TextView) findViewById(R.id.startTime);
         TextView endTime = (TextView) findViewById(R.id.endTime);
 
-
         SharedPreferences sharedpreferences = getSharedPreferences("Getraenke", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedpreferences.edit();
 
@@ -165,13 +153,27 @@ public class Drinks extends AppCompatActivity {
 
     }
 
+    public void stop(final View view) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setMessage(R.string.stoppen);
+        builder.setPositiveButton(R.string.Ja, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                stopTracking(view);
+            }
+        });
+        builder.setNegativeButton(R.string.Nein, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+
     public void stopTracking(View view){
-        TextView stop = (TextView) findViewById(R.id.endTime);
-        if(Global.valueEndTime==null) {
-            stop.setText("Endzeit: " + Global.convertDate(Global.getTime()));
-            Global.valueEndTime = Global.convertDate(Global.getTime());
-            Global.endzeit = Global.getTime();
-        }
         Intent reports = new Intent(this, Reports.class);
         startActivity(reports);
     }

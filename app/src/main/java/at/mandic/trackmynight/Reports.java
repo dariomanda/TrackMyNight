@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Reports extends AppCompatActivity {
@@ -16,8 +16,9 @@ public class Reports extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reports);
 
-        Button smsReports = (Button)findViewById(R.id.sms);
+      /*  Button smsReports = (Button)findViewById(R.id.sms);
         Button callsReport = (Button)findViewById(R.id.calls);
+
         callsReport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -29,7 +30,28 @@ public class Reports extends AppCompatActivity {
             public void onClick(View v) {
                 smsReports(v);
             }
-        });
+        });*/
+
+        TextView startTime = (TextView) findViewById(R.id.startTime);
+        TextView stop = (TextView) findViewById(R.id.endTime);
+
+        SharedPreferences sharedpreferenc = getSharedPreferences("Zeit", Context.MODE_PRIVATE);
+        long start = sharedpreferenc.getLong("StartTime", 0);
+        long end = sharedpreferenc.getLong("EndTime", 0);
+        SharedPreferences.Editor editor = sharedpreferenc.edit();
+
+        startTime.setText("Startzeit: " + Global.convertDateSMS(start));
+
+        if (end == 0) {
+            stop.setText("Endzeit: " + Global.convertDate(Global.getTime()));
+            Global.valueEndTime = Global.convertDate(Global.getTime());
+            Global.endzeit = Global.getTime();
+            editor.putLong("EndTime", Global.endzeit);
+            editor.apply();
+        }
+        long end2 = sharedpreferenc.getLong("EndTime", 0);
+        stop.setText("Endzeit: " + Global.convertDateSMS(end2));
+
     }
 
     public void promilleberechnen(View view) {
@@ -64,5 +86,13 @@ public class Reports extends AppCompatActivity {
     public void smsReports(View view){
         Intent smsReports = new Intent(this, SMSReports.class);
         startActivity(smsReports);
+    }
+
+    public void fotoReports(View view) {
+        Toast.makeText(Reports.this, R.string.nicht_implementiert, Toast.LENGTH_LONG).show();
+    }
+
+    public void streckenReports(View view) {
+        Toast.makeText(Reports.this, R.string.nicht_implementiert, Toast.LENGTH_LONG).show();
     }
 }

@@ -11,32 +11,65 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:onClick="promilleberechnen"
-        android:text="Alkoholkonsum" />
+        android:text="@string/alkoholkonsum" />
 
     <Button
         android:id="@+id/calls"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Anrufe" />
+        android:layout_marginTop="20dp"
+        android:onClick="callsReport"
+        android:text="@string/anrufe" />
     <Button
         android:id="@+id/sms"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Textnachrichten" />
+        android:layout_marginTop="20dp"
+        android:onClick="smsReports"
+        android:text="@string/textnachrichten" />
     <Button
         android:id="@+id/photos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Fotos ;)" />
+        android:layout_marginTop="20dp"
+        android:onClick="fotoReports"
+        android:text="@string/fotos" />
+
     <Button
         android:id="@+id/route"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Zurückgelegte Strecke" />
+        android:layout_marginTop="20dp"
+        android:onClick="streckenReports"
+        android:text="@string/zur_ckgelegte_strecke" />
+
+    <TextView
+        android:id="@+id/startTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="80dp"
+        android:text="@string/startzeit"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintTop_creator="1" />
+
+
+    <TextView
+        android:id="@+id/endTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:text="@string/endzeit"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1" />
 </LinearLayout>

@@ -44,14 +44,14 @@ public class MainActivity extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        builder.setMessage("Wircklich zurücksetzen ?");
-        builder.setPositiveButton("Ja", new DialogInterface.OnClickListener() {
+        builder.setMessage(R.string.reset);
+        builder.setPositiveButton(R.string.Ja, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 reset();
             }
         });
-        builder.setNegativeButton("Nein", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.Nein, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sharedpreferenc = getSharedPreferences("Zeit", Context.MODE_PRIVATE);
         SharedPreferences.Editor edit = sharedpreferenc.edit();
         edit.putLong("StartTime", 0);
+        edit.putLong("EndTime", 0);
         edit.apply();
 
         editor.putString("Bier", "0");
